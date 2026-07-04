@@ -13,6 +13,28 @@ function type() {
   } else {
     j++;
   }
+  const slides = document.querySelectorAll(".hero-slideshow .slide");
+
+let current = 0;
+
+// ensure first slide is visible
+slides[current].classList.add("active");
+
+function nextSlide(){
+    // remove current
+    slides[current].classList.remove("active");
+
+    // move forward
+    current = (current + 1) % slides.length;
+
+    // add next (with tiny delay for smoother flow)
+    setTimeout(() => {
+        slides[current].classList.add("active");
+    }, 200);
+}
+
+// longer interval = smoother premium feel
+setInterval(nextSlide, 6000);
 // ================= PREMIUM HERO SLIDESHOW =================
 
 const heroSlides = document.querySelectorAll(".hero-slideshow .slide");
