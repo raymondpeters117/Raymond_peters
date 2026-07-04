@@ -19,81 +19,62 @@
 <!-- ================= NAVBAR ================= -->
 
 <header>
-
     <div class="logo">
         RayP<span>.</span>
     </div>
 
     <nav>
-
         <a href="#home">Home</a>
-
         <a href="#about">About</a>
-
         <a href="#skills">Skills</a>
-
         <a href="#projects">Projects</a>
-
         <a href="#gallery">Gallery</a>
-
         <a href="#contact">Contact</a>
-
     </nav>
-
 </header>
 
-<!-- ================= HERO ================= -->
+<!-- ================= HERO (WITH SLIDESHOW) ================= -->
 
 <section id="home" class="hero">
 
-    <img src="me.jpg"
-         class="profile-img"
-         alt="Raymond Peters">
+    <!-- SLIDESHOW BACKGROUND -->
+    <div class="slideshow">
 
-    <h1>
-        Raymond <span>Peters</span>
-    </h1>
+        <img src="images/slide1.jpg" class="slide active" alt="Slide 1">
+        <img src="images/slide2.jpg" class="slide" alt="Slide 2">
+        <img src="images/slide3.jpg" class="slide" alt="Slide 3">
+        <img src="images/slide4.jpg" class="slide" alt="Slide 4">
 
-    <h3>
-        I'm
-        <span id="typed"></span>
-    </h3>
-
-    <p>
-
-        Passionate Web Developer dedicated to creating modern,
-        fast, responsive and user-friendly websites.
-
-    </p>
-
-    <div class="hero-buttons">
-
-        <a href="cv/Raymond_Peters_CV.pdf"
-           class="btn"
-           download>
-
-           Download CV
-
-        </a>
-
-        <a href="#contact"
-           class="btn">
-
-           Contact Me
-
-        </a>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
 
     </div>
 
-    <div class="socials">
+    <!-- HERO CONTENT -->
+    <div class="hero-content">
 
-        <a href="#"><i class="fab fa-github"></i></a>
+        <img src="me.jpg" class="profile-img" alt="Raymond Peters">
 
-        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <h1>Raymond <span>Peters</span></h1>
 
-        <a href="#"><i class="fab fa-facebook"></i></a>
+        <h3>I'm <span id="typed"></span></h3>
 
-        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <p>
+            Passionate Web Developer dedicated to creating modern,
+            fast, responsive and user-friendly websites.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="cv/Raymond_Peters_CV.pdf" class="btn" download>Download CV</a>
+            <a href="#contact" class="btn">Contact Me</a>
+        </div>
+
+        <div class="socials">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
 
     </div>
 
@@ -102,224 +83,122 @@
 <!-- ================= STATS ================= -->
 
 <section class="section">
-
 <div class="grid">
 
-<div class="card">
-<h2>20+</h2>
-<p>Projects</p>
-</div>
-
-<div class="card">
-<h2>5+</h2>
-<p>Websites</p>
-</div>
-
-<div class="card">
-<h2>3+</h2>
-<p>Years Learning</p>
-</div>
-
-<div class="card">
-<h2>100%</h2>
-<p>Dedication</p>
-</div>
+<div class="card"><h2>20+</h2><p>Projects</p></div>
+<div class="card"><h2>5+</h2><p>Websites</p></div>
+<div class="card"><h2>3+</h2><p>Years Learning</p></div>
+<div class="card"><h2>100%</h2><p>Dedication</p></div>
 
 </div>
-
 </section>
 
 <!-- ================= ABOUT ================= -->
 
 <section id="about" class="section dark">
-
 <h2>About Me</h2>
 
 <p>
-
 Hello! I'm Raymond Peters, an ICT student and passionate web developer.
-
-I enjoy creating beautiful, responsive and interactive websites using modern web technologies.
-
-I also develop management systems and dashboards that simplify everyday work.
-
+I build modern websites, dashboards, and systems that solve real problems.
 </p>
-
 </section>
 
 <!-- ================= SKILLS ================= -->
 
 <section id="skills" class="section">
-
 <h2>Professional Skills</h2>
 
 <div class="grid">
 
 <div class="card">
-
 <h3>HTML</h3>
-
-<div class="progress">
-<div style="width:95%;"></div>
-</div>
-
+<div class="progress"><div style="width:95%"></div></div>
 </div>
 
 <div class="card">
-
 <h3>CSS</h3>
-
-<div class="progress">
-<div style="width:90%;"></div>
-</div>
-
+<div class="progress"><div style="width:90%"></div></div>
 </div>
 
 <div class="card">
-
 <h3>JavaScript</h3>
-
-<div class="progress">
-<div style="width:85%;"></div>
-</div>
-
+<div class="progress"><div style="width:85%"></div></div>
 </div>
 
 <div class="card">
-
 <h3>UI Design</h3>
-
-<div class="progress">
-<div style="width:80%;"></div>
+<div class="progress"><div style="width:80%"></div></div>
 </div>
 
 </div>
-
-</div>
-
 </section>
 
 <!-- ================= PROJECTS ================= -->
 
 <section id="projects" class="section dark">
-
 <h2>Featured Projects</h2>
 
 <div class="grid">
 
 <div class="card">
-
 <h3>Portfolio Website</h3>
-
 <p>Modern personal portfolio website.</p>
-
 <a href="https://raymond-peters.vercel.app/" class="btn">Live Demo</a>
-
 </div>
 
 <div class="card">
-
-<h3>School Management System</h3>
-
-<p>Complete school administration platform.</p>
-
+<h3>School System</h3>
+<p>Complete school management system.</p>
 <a href="https://school-indol-tau.vercel.app/" class="btn">Live Demo</a>
-
 </div>
 
 <div class="card">
-
-<h3>Farm Management Dashboard</h3>
-
-<p>Income, expenses and worker management system.</p>
-
+<h3>Farm Dashboard</h3>
+<p>Income and expenses tracking system.</p>
 <a href="https://farm-system-ten.vercel.app/" class="btn">Live Demo</a>
-
 </div>
 
 </div>
-
 </section>
 
 <!-- ================= GALLERY ================= -->
 
 <section id="gallery" class="section">
-
 <h2>Gallery</h2>
 
 <div class="gallery">
-
-<img src="logo.png" alt="Project">
-
-<img src="images/project2.jpg" alt="Project">
-
-<img src="images/project3.jpg" alt="Project">
-
-<img src="images/project4.jpg" alt="Project">
-
-<img src="images/project5.jpg" alt="Project">
-
-<img src="images/project6.jpg" alt="Project">
-
+<img src="logo.png">
+<img src="images/project2.jpg">
+<img src="images/project3.jpg">
+<img src="images/project4.jpg">
+<img src="images/project5.jpg">
+<img src="images/project6.jpg">
 </div>
-
 </section>
 
 <!-- ================= CONTACT ================= -->
 
 <section id="contact" class="section dark">
-
 <h2>Let's Work Together</h2>
 
 <form>
-
-<input
-type="text"
-placeholder="Full Name"
-required>
-
-<input
-type="email"
-placeholder="Email Address"
-required>
-
-<textarea
-placeholder="Write your message..."
-required></textarea>
-
-<button type="submit">
-
-Send Message
-
-</button>
-
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email Address" required>
+<textarea placeholder="Write your message..." required></textarea>
+<button type="submit">Send Message</button>
 </form>
-
 </section>
 
 <!-- ================= FOOTER ================= -->
 
 <footer>
-
-<p>
-
-© 2026 Raymond Peters
-
-<br>
-
-Designed & Developed by Raymond Peters
-
-</p>
-
+<p>© 2026 Raymond Peters<br>Designed & Developed by Raymond Peters</p>
 </footer>
 
-<!-- Scroll Button -->
+<!-- SCROLL TOP -->
+<button id="topBtn"><i class="fas fa-arrow-up"></i></button>
 
-<button id="topBtn">
-
-<i class="fas fa-arrow-up"></i>
-
-</button>
 <script src="email.js"></script>
 <script src="script.js"></script>
 
