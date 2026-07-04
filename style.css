@@ -302,3 +302,8 @@ header nav a{
 }
 
 }
+#status{
+    margin-top:15px;
+    font-weight:600;
+    text-align:center;
+}
