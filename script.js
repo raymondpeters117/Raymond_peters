@@ -13,7 +13,28 @@ function type() {
   } else {
     j++;
   }
+// ================= PREMIUM HERO SLIDESHOW =================
 
+const heroSlides = document.querySelectorAll(".hero-slideshow .slide");
+
+let currentSlide = 0;
+
+function changeSlide(){
+    heroSlides.forEach(slide => slide.classList.remove("active"));
+
+    currentSlide++;
+    if(currentSlide >= heroSlides.length){
+        currentSlide = 0;
+    }
+
+    heroSlides[currentSlide].classList.add("active");
+}
+
+// start first slide
+heroSlides[0].classList.add("active");
+
+// change every 4 seconds (smooth like professional sites)
+setInterval(changeSlide, 4000);
   document.getElementById("typed").textContent = currentWord.substring(0, j);
 
   if (!isDeleting && j === currentWord.length) {
