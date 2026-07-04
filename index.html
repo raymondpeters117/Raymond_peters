@@ -1,88 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raymond Peters | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raymond Peters | Web Developer</title>
+
+    <meta name="description" content="Official portfolio of Raymond Peters - Web Developer, UI Designer and ICT Student">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
+
 <header>
-  <div class="logo">Raymond</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
-  </nav>
+
+    <div class="logo">
+        RP<span>.</span>
+    </div>
+
+    <nav>
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#skills">Skills</a>
+
+        <a href="#projects">Projects</a>
+
+        <a href="#gallery">Gallery</a>
+
+        <a href="#contact">Contact</a>
+
+    </nav>
+
 </header>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
+
 <section id="home" class="hero">
-  <h1>Hello, I'm <span>Raymond Peters</span></h1>
-  <p class="typing">I am a <span id="typed"></span></p>
-  <a href="#contact" class="btn">Hire Me</a>
+
+    <img src="images/profile.jpg"
+         class="profile-img"
+         alt="Raymond Peters">
+
+    <h1>
+        Raymond <span>Peters</span>
+    </h1>
+
+    <h3>
+        I'm
+        <span id="typed"></span>
+    </h3>
+
+    <p>
+
+        Passionate Web Developer dedicated to creating modern,
+        fast, responsive and user-friendly websites.
+
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="cv/Raymond_Peters_CV.pdf"
+           class="btn"
+           download>
+
+           Download CV
+
+        </a>
+
+        <a href="#contact"
+           class="btn">
+
+           Contact Me
+
+        </a>
+
+    </div>
+
+    <div class="socials">
+
+        <a href="#"><i class="fab fa-github"></i></a>
+
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+
+        <a href="#"><i class="fab fa-facebook"></i></a>
+
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+
+    </div>
+
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="section">
-  <h2>About Me</h2>
-  <p>
-    I am a passionate web developer who builds modern, responsive and interactive websites using HTML, CSS and JavaScript.
-  </p>
+<!-- ================= STATS ================= -->
+
+<section class="section">
+
+<div class="grid">
+
+<div class="card">
+<h2>20+</h2>
+<p>Projects</p>
+</div>
+
+<div class="card">
+<h2>5+</h2>
+<p>Websites</p>
+</div>
+
+<div class="card">
+<h2>3+</h2>
+<p>Years Learning</p>
+</div>
+
+<div class="card">
+<h2>100%</h2>
+<p>Dedication</p>
+</div>
+
+</div>
+
 </section>
 
-<!-- SKILLS -->
-<section id="skills" class="section dark">
-  <h2>My Skills</h2>
-  <div class="grid">
-    <div class="card">HTML</div>
-    <div class="card">CSS</div>
-    <div class="card">JavaScript</div>
-    <div class="card">UI Design</div>
-  </div>
+<!-- ================= ABOUT ================= -->
+
+<section id="about" class="section dark">
+
+<h2>About Me</h2>
+
+<p>
+
+Hello! I'm Raymond Peters, an ICT student and passionate web developer.
+
+I enjoy creating beautiful, responsive and interactive websites using modern web technologies.
+
+I also develop management systems and dashboards that simplify everyday work.
+
+</p>
+
 </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="section">
-  <h2>Projects</h2>
-  <div class="grid">
-    <div class="card">Portfolio Website</div>
-    <div class="card">School System</div>
-    <div class="card">Dashboard App</div>
-  </div>
+<!-- ================= SKILLS ================= -->
+
+<section id="skills" class="section">
+
+<h2>Professional Skills</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>HTML</h3>
+
+<div class="progress">
+<div style="width:95%;"></div>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>CSS</h3>
+
+<div class="progress">
+<div style="width:90%;"></div>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>JavaScript</h3>
+
+<div class="progress">
+<div style="width:85%;"></div>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>UI Design</h3>
+
+<div class="progress">
+<div style="width:80%;"></div>
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- GALLERY -->
-<section id="gallery" class="section dark">
-  <h2>Gallery</h2>
-  <div class="gallery">
-    <img src="https://via.placeholder.com/300" />
-    <img src="https://via.placeholder.com/300" />
-    <img src="https://via.placeholder.com/300" />
-  </div>
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects" class="section dark">
+
+<h2>Featured Projects</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Portfolio Website</h3>
+
+<p>Modern personal portfolio website.</p>
+
+<a href="#" class="btn">Live Demo</a>
+
+</div>
+
+<div class="card">
+
+<h3>School Management System</h3>
+
+<p>Complete school administration platform.</p>
+
+<a href="#" class="btn">Live Demo</a>
+
+</div>
+
+<div class="card">
+
+<h3>Farm Management Dashboard</h3>
+
+<p>Income, expenses and worker management system.</p>
+
+<a href="#" class="btn">Live Demo</a>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-  <h2>Contact Me</h2>
-  <form>
-    <input type="text" placeholder="Your Name">
-    <input type="email" placeholder="Your Email">
-    <textarea placeholder="Message"></textarea>
-    <button type="submit">Send</button>
-  </form>
+<!-- ================= GALLERY ================= -->
+
+<section id="gallery" class="section">
+
+<h2>Gallery</h2>
+
+<div class="gallery">
+
+<img src="images/project1.jpg" alt="Project">
+
+<img src="images/project2.jpg" alt="Project">
+
+<img src="images/project3.jpg" alt="Project">
+
+<img src="images/project4.jpg" alt="Project">
+
+<img src="images/project5.jpg" alt="Project">
+
+<img src="images/project6.jpg" alt="Project">
+
+</div>
+
 </section>
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="section dark">
+
+<h2>Let's Work Together</h2>
+
+<form>
+
+<input
+type="text"
+placeholder="Full Name"
+required>
+
+<input
+type="email"
+placeholder="Email Address"
+required>
+
+<textarea
+placeholder="Write your message..."
+required></textarea>
+
+<button type="submit">
+
+Send Message
+
+</button>
+
+</form>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
-  <p>© 2026 Raymond Peters. All rights reserved.</p>
+
+<p>
+
+© 2026 Raymond Peters
+
+<br>
+
+Designed & Developed by Raymond Peters
+
+</p>
+
 </footer>
 
+<!-- Scroll Button -->
+
+<button id="topBtn">
+
+<i class="fas fa-arrow-up"></i>
+
+</button>
+
 <script src="script.js"></script>
+
 </body>
 </html>
