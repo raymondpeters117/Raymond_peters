@@ -26,7 +26,23 @@ function type() {
         setTimeout(type, 1200);
         return;
     }
+// =========================
+// MOBILE MENU TOGGLE
+// =========================
 
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+});
+
+// close menu when clicking a link
+document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+    });
+});
     if (isDeleting && j === 0) {
         isDeleting = false;
         i = (i + 1) % words.length;
