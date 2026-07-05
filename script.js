@@ -85,3 +85,22 @@ document.querySelector("form").addEventListener("submit", function (e) {
     });
 
 });
+// Scroll to top button
+let topBtn = document.getElementById("topBtn");
+
+// Show button when scrolling
+window.onscroll = function () {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        topBtn.style.display = "block";
+    } else {
+        topBtn.style.display = "none";
+    }
+};
+
+// Click to scroll top
+topBtn.addEventListener("click", function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
