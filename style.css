@@ -158,20 +158,41 @@ header{
    MOBILE HAMBURGER MENU
 ========================= */
 
-.menu-toggle{
-    display:none;
-    font-size:1.6rem;
-    color:#22d3ee;
-    cursor:pointer;
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background: #111;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+
+  transform: translateX(-100%);
+  transition: 0.3s ease;
 }
 
-/* Mobile styles */
-@media(max-width:768px){
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  margin: 15px 0;
+}
 
-    .menu-toggle{
-        display:block;
-    }
+.mobile-menu.active {
+  transform: translateX(0);
+}
 
+.menu-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+}
     nav{
         position:absolute;
         top:70px;
