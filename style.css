@@ -1,516 +1,295 @@
-/* ===============================
-   RAYMOND PETERS PORTFOLIO
-   Royal Blue + White Theme
-================================= */
+/* =========================
+   PREMIUM BLACK & GOLD THEME
+   (Luxury upgraded version)
+========================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-:root{
-    --primary:#0A4DCC;
-    --secondary:#1565FF;
-    --accent:#4DA3FF;
-    --light:#F8FAFF;
-    --white:#FFFFFF;
-    --dark:#07152D;
-    --card:rgba(255,255,255,.08);
-    --border:rgba(255,255,255,.15);
-    --text:#F5F7FA;
-    --gray:#B8C5D6;
-    --shadow:0 15px 35px rgba(0,0,0,.25);
-}
-.hero{
-    position:relative;
-    height:100vh;
-    overflow:hidden;
-}
-
-/* slideshow container */
-.hero-slideshow{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-}
-
-/* each slide */
-.hero-slideshow .slide{
-    position:absolute;
-    width:100%;
-    height:100%;
-    background-size:cover;
-    background-position:center;
-
-    opacity:0;
-    transform:scale(1.2);
-    transition:opacity 2s ease-in-out, transform 8s ease-in-out;
-}
-
-/* active slide */
-.hero-slideshow .slide.active{
-    opacity:1;
-    transform:scale(1);
-}
-
-/* smooth dark overlay */
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.55);
-    z-index:1;
-}
-
-/* content above slideshow */
-.hero > *:not(.hero-slideshow){
-    position:relative;
-    z-index:2;
-}
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:"Poppins",sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
 }
 
 body{
-    background:linear-gradient(135deg,#07152D,#0A4DCC);
-    color:var(--text);
-    overflow-x:hidden;
-}
-/* ================= HERO SLIDESHOW (PREMIUM STYLE) ================= */
+    font-family:Segoe UI, Arial, sans-serif;
+    color:#fff;
+    min-height:100vh;
 
-.hero{
-    position:relative;
-    height:100vh;
-    overflow:hidden;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:white;
-}
+    /* deeper luxury black gradient + subtle gold glow */
+  body{
+    font-family:Segoe UI, Arial, sans-serif;
+    color:#fff;
+    min-height:100vh;
 
-/* slideshow container */
-.hero-slideshow{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:0;
-}
+    /* Background image + dark luxury overlay */
+    background:
+        linear-gradient(
+            rgba(0,0,0,.75),
+            rgba(0,0,0,.85)
+        ),
+        url("back.png");
 
-/* each slide */
-.hero-slideshow .slide{
-    position:absolute;
-    width:100%;
-    height:100%;
     background-size:cover;
     background-position:center;
-    opacity:0;
-    transform:scale(1.15);
-    transition:opacity 1.5s ease-in-out, transform 6s ease;
+    background-attachment:fixed;
 }
 
-/* active slide */
-.hero-slideshow .slide.active{
-    opacity:1;
-    transform:scale(1);
-}
-
-/* dark overlay (important for text readability) */
-.hero::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.6);
-    z-index:1;
-}
-
-/* all hero content above slideshow */
-.hero > *:not(.hero-slideshow){
-    position:relative;
-    z-index:2;
-}
-/* ================= NAVBAR ================= */
-
-header{
-    position:fixed;
-    top:0;
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 8%;
-    background:rgba(7,21,45,.75);
-    backdrop-filter:blur(16px);
-    border-bottom:1px solid rgba(255,255,255,.1);
-    z-index:1000;
-    transition:.4s;
-}
-
-.logo{
-    font-size:28px;
-    font-weight:700;
-    color:white;
-}
-
-.logo span{
-    color:#7CC6FF;
-}
-
-header nav a{
-    color:white;
-    margin-left:30px;
-    text-decoration:none;
-    font-weight:500;
-    transition:.35s;
-    position:relative;
-}
-
-header nav a::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-6px;
-    width:0;
-    height:3px;
-    background:#7CC6FF;
-    transition:.3s;
-}
-
-header nav a:hover::after{
-    width:100%;
-}
-
-header nav a:hover{
-    color:#7CC6FF;
-}
-
-/* ================= HERO ================= */
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:120px 20px;
-}
-
-.hero h1{
-    font-size:65px;
-    font-weight:800;
-    margin-bottom:15px;
-}
-
-.hero h1 span{
-    color:#7CC6FF;
-}
-/* ================= AUTO SLIDESHOW ================= */
-
-.slideshow{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:-1;
-    overflow:hidden;
-}
-
-/* each slide fills screen */
-.slide{
-    position:absolute;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-
-    opacity:0;
-    transform:scale(1.1);
-    transition:opacity 1.2s ease-in-out, transform 6s ease;
-}
-
-/* active slide */
-.slide.active{
-    opacity:1;
-    transform:scale(1);
-}
-
-/* dark overlay for text readability */
-.hero::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.55);
-    z-index:0;
-}
-
-/* make hero content above slideshow */
-.hero-content,
-.hero h1,
-.hero h3,
-.hero p,
-.hero-buttons,
-.socials,
-.profile-img{
-    position:relative;
-    z-index:2;
-}
-.hero p{
-    max-width:700px;
-    color:var(--gray);
-    line-height:1.8;
-    font-size:18px;
-    margin-top:10px;
-}
-
-/* ================= BUTTON ================= */
-
-.btn{
-    display:inline-block;
-    margin-top:35px;
-    padding:15px 40px;
-    background:linear-gradient(45deg,#1565FF,#4DA3FF);
-    color:white;
-    text-decoration:none;
-    border-radius:50px;
-    font-weight:600;
-    transition:.35s;
-    box-shadow:0 10px 25px rgba(21,101,255,.45);
-}
-
-.btn:hover{
-    transform:translateY(-6px);
-    box-shadow:0 18px 40px rgba(77,163,255,.55);
-}
-
-/* ================= SECTION ================= */
-
-.section{
-    padding:110px 8%;
-}
-
-.section h2{
-    text-align:center;
-    font-size:42px;
-    margin-bottom:50px;
-    color:white;
-}
-
-.dark{
-    background:rgba(255,255,255,.04);
-}
-
-/* ================= GRID ================= */
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-}
-
-/* ================= CARDS ================= */
-
-.card{
-    background:var(--card);
-    backdrop-filter:blur(14px);
-    border:1px solid var(--border);
-    padding:35px;
-    border-radius:20px;
-    transition:.4s;
-    box-shadow:var(--shadow);
-}
-
-.card:hover{
-    transform:translateY(-12px);
-    border-color:#4DA3FF;
-}
-
-.card h3{
-    color:#7CC6FF;
-    margin-bottom:15px;
-}
-
-.card p{
-    color:var(--gray);
-    line-height:1.7;
-}
-
-/* ================= GALLERY ================= */
-
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
-}
-
-.gallery img{
-    width:100%;
-    height:240px;
-    object-fit:cover;
-    border-radius:18px;
-    transition:.45s;
-    box-shadow:var(--shadow);
-}
-
-.gallery img:hover{
-    transform:scale(1.06);
-}
-
-/* ================= FORM ================= */
-
-form{
-    max-width:650px;
-    margin:auto;
-}
-
-input,
-textarea{
-    width:100%;
-    padding:18px;
-    margin:15px 0;
-    border:none;
-    border-radius:12px;
-    background:rgba(255,255,255,.08);
-    color:white;
-    font-size:16px;
-    outline:none;
-}
-
-input::placeholder,
-textarea::placeholder{
-    color:#d6e4ff;
-}
-
-textarea{
-    resize:none;
-    height:170px;
-}
-
-button{
-    width:100%;
-    padding:18px;
-    border:none;
-    border-radius:50px;
-    background:linear-gradient(45deg,#1565FF,#4DA3FF);
-    color:white;
-    font-size:18px;
-    cursor:pointer;
-    transition:.35s;
-}
-
-button:hover{
-    transform:translateY(-4px);
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-    text-align:center;
-    padding:35px;
-    background:#041124;
-    color:#BFD5FF;
-}
-
-/* ================= SCROLLBAR ================= */
-
+/* Scrollbar */
 ::-webkit-scrollbar{
     width:10px;
 }
 
 ::-webkit-scrollbar-thumb{
-    background:#1565FF;
+    background:linear-gradient(180deg,#d4af37,#b8860b);
     border-radius:20px;
 }
 
-/* ================= MOBILE ================= */
-
-@media(max-width:768px){
-
-.hero h1{
-    font-size:42px;
+::-webkit-scrollbar-track{
+    background:#0a0a0a;
 }
 
-.section h2{
-    font-size:34px;
-}
+/* =========================
+   HEADER
+========================= */
 
 header{
-    padding:15px 20px;
-}
+    text-align:center;
+    padding:30px;
 
-header nav a{
-    margin-left:15px;
-    font-size:14px;
-}
-/* ================= AUTO SLIDESHOW ================= */
+    background:rgba(10,10,10,.85);
+    backdrop-filter:blur(25px);
 
-.slideshow{
-    position:absolute;
+    border-bottom:1px solid rgba(212,175,55,.4);
+
+    position:sticky;
     top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:-1;
+    z-index:1000;
+}
+
+header h1{
+    font-size:2rem;
+
+    /* premium gold gradient text */
+    background:linear-gradient(135deg,#f5d67b,#d4af37,#b8860b);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    letter-spacing:1px;
+}
+
+.sub{
+    margin-top:10px;
+    color:#cfcfcf;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main{
+    max-width:1200px;
+    margin:auto;
+    padding:30px;
+}
+
+/* =========================
+   GLASS CARDS
+========================= */
+
+.card{
+    position:relative;
     overflow:hidden;
+
+    margin-bottom:25px;
+    padding:25px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.04);
+
+    backdrop-filter:blur(22px);
+
+    border:1px solid rgba(212,175,55,.15);
+
+    box-shadow:0 10px 40px rgba(0,0,0,.5);
+
+    transition:.4s;
 }
 
-/* each slide fills screen */
-.slide{
-    position:absolute;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-
-    opacity:0;
-    transform:scale(1.1);
-    transition:opacity 1.2s ease-in-out, transform 6s ease;
-}
-
-/* active slide */
-.slide.active{
-    opacity:1;
-    transform:scale(1);
-}
-
-/* dark overlay for text readability */
-.hero::before{
+/* Gold Shine */
+.card::before{
     content:"";
     position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.55);
-    z-index:0;
+    top:-90%;
+    left:-100%;
+    width:60%;
+    height:260%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(212,175,55,.25),
+        transparent
+    );
+
+    transform:rotate(25deg);
+    transition:.9s;
 }
 
-/* make hero content above slideshow */
-.hero-content,
-.hero h1,
-.hero h3,
-.hero p,
-.hero-buttons,
-.socials,
-.profile-img{
-    position:relative;
-    z-index:2;
+.card:hover::before{
+    left:170%;
 }
+
+.card:hover{
+    transform:translateY(-10px);
+
+    border-color:#d4af37;
+
+    box-shadow:
+        0 0 30px rgba(212,175,55,.25),
+        0 20px 50px rgba(0,0,0,.6);
 }
-#status{
+
+/* =========================
+   HEADINGS
+========================= */
+
+h2{
+    color:#d4af37;
+    margin-bottom:20px;
+    font-size:1.4rem;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+input{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+
+    border:1px solid rgba(212,175,55,.15);
+
+    background:rgba(255,255,255,.03);
+    color:white;
+
+    transition:.3s;
+}
+
+input::placeholder{
+    color:#999;
+}
+
+input:focus{
+    outline:none;
+    border-color:#d4af37;
+    box-shadow:0 0 15px rgba(212,175,55,.25);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button{
     margin-top:15px;
-    font-weight:600;
+    padding:12px 22px;
+
+    border:none;
+    border-radius:10px;
+
+    background:linear-gradient(135deg,#f5d67b,#d4af37,#b8860b);
+
+    color:#111;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 6px 20px rgba(212,175,55,.25);
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 25px rgba(212,175,55,.45);
+}
+
+button:active{
+    transform:scale(.96);
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.table-container{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    border-radius:15px;
+    overflow:hidden;
+
+    background:rgba(255,255,255,.02);
+}
+
+th{
+    background:#111;
+    color:#d4af37;
+    padding:14px;
+    border-bottom:1px solid rgba(212,175,55,.2);
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+tbody tr{
+    transition:.3s;
+}
+
+tbody tr:hover{
+    background:rgba(212,175,55,.08);
+}
+
+/* =========================
+   CURSOR
+========================= */
+
+.cursor{
+    color:#d4af37;
+    animation:blink .8s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0;
+    }
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
     text-align:center;
+    padding:20px;
+    color:#999;
+
+    border-top:1px solid rgba(212,175,55,.1);
+
+    margin-top:40px;
 }
