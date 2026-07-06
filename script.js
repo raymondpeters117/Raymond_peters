@@ -127,3 +127,33 @@ sections.forEach(sec => {
     sec.classList.add("hidden");
     observer.observe(sec);
 });
+emailjs.init({
+    publicKey: "YOUR_PUBLIC_KEY"
+});
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const params = {
+        from_name: document.getElementById("name").value,
+        from_email: document.getElementById("email").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value
+    };
+
+    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", params)
+    .then(() => {
+        document.getElementById("status").innerHTML =
+            "✅ Message sent successfully!";
+
+        form.reset();
+    })
+    .catch((error) => {
+        document.getElementById("status").innerHTML =
+            "❌ Failed to send message.";
+
+        console.log(error);
+    });
+});
