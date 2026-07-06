@@ -1,133 +1,112 @@
-
-// ================= TYPING EFFECT =================
-
-const words = ["Frontend Developer", "Web Designer", "Programmer", "Excavator Operator"];
-
-let i = 0;
-let j = 0;
-let currentWord = "";
-let isDeleting = false;
-
-function type() {
-
-    currentWord = words[i];
-
-    if (!isDeleting) {
-        j++;
-    } else {
-        j--;
-    }
-
-    document.getElementById("typed").textContent =
-        currentWord.substring(0, j);
-
-    if (!isDeleting && j === currentWord.length) {
-        isDeleting = true;
-        setTimeout(type, 1200);
-        return;
-    }
-// =========================
-// MOBILE MENU TOGGLE
-// =========================
-
+//// ================= MOBILE MENU =================
 const menuToggle = document.getElementById("menuToggle");
-const navMenu = document.getElementById("navMenu");
+const mobileMenu = document.getElementById("mobileMenu");
+const overlay = document.getElementById("overlay");
 
 menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
+    mobileMenu.classList.toggle("active");
+    overlay.classList.toggle("active");
 });
 
-// close menu when clicking a link
-document.querySelectorAll("nav a").forEach(link => {
-    link.addEventListener("click", () => {
-        navMenu.classList.remove("active");
-    });
+overlay.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+    overlay.classList.remove("active");
 });
+
+//// ================= TYPING TEXT =================
+const typed = document.getElementById("typed");
+
+const words = ["Web Developer", "UI Designer", "ICT Student"];
+let i = 0;
+let j = 0;
+let current = "";
+let isDeleting = false;
+
+function typeEffect() {
+    current = words[i];
+
+    if (isDeleting) {
+        typed.textContent = current.substring(0, j--);
+    } else {
+        typed.textContent = current.substring(0, j++);
+    }
+
+    if (!isDeleting && j === current.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 1200);
+        return;
+    }
+
     if (isDeleting && j === 0) {
         isDeleting = false;
         i = (i + 1) % words.length;
     }
 
-    setTimeout(type, isDeleting ? 60 : 100);
+    setTimeout(typeEffect, isDeleting ? 60 : 120);
 }
 
-type();
+typeEffect();
 
+//// ================= SLIDESHOW =================
+let slides = document.querySelectorAll(".slide");
+let index = 0;
 
-// ================= HERO SLIDESHOW (FIXED) =================
-
-const slides = document.querySelectorAll(".hero-slideshow .slide");
-
-let current = 0;
-
-// show first slide
-function showSlide(index) {
+function showSlide() {
     slides.forEach(slide => slide.classList.remove("active"));
     slides[index].classList.add("active");
+
+    index = (index + 1) % slides.length;
 }
 
-function nextSlide() {
-    current = (current + 1) % slides.length;
-    showSlide(current);
-}
+setInterval(showSlide, 3000);
 
-// initialize
-showSlide(current);
+//// ================= SCROLL TO TOP =================
+const topBtn = document.getElementById("topBtn");
 
-// auto change every 4 seconds
-setInterval(nextSlide, 4000);
-
-
-// ================= CONTACT FORM (EMAILJS) =================
-
-document.querySelector("form").addEventListener("submit", function (e) {
-
-    e.preventDefault();
-
-    emailjs.sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
-        this
-    ).then(() => {
-
-        alert("Message sent successfully!");
-        this.reset();
-
-    }).catch((error) => {
-
-        alert("Failed to send message.");
-        console.log(error);
-
-    });
-
-});
-// Scroll to top button
-let topBtn = document.getElementById("topBtn");
-
-// Show button when scrolling
-window.onscroll = function () {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
         topBtn.style.display = "block";
     } else {
         topBtn.style.display = "none";
     }
-};
+});
 
-// Click to scroll top
-topBtn.addEventListener("click", function () {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+topBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+//// ================= CONTACT FORM SAVE =================
+const form = document.querySelector("form");
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = form.querySelector("input[type='text']").value;
+    const email = form.querySelector("input[type='email']").value;
+    const message = form.querySelector("textarea").value;
+
+    const messages = JSON.parse(localStorage.getItem("messages")) || [];
+
+    messages.push({ name, email, message });
+
+    localStorage.setItem("messages", JSON.stringify(messages));
+
+    alert("Message sent successfully!");
+    form.reset();
+});
+
+//// ================= FADE IN ANIMATION =================
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
     });
-});
-const toggleBtn = document.getElementById("menuToggle");
-const menu = document.getElementById("mobileMenu");
+}, { threshold: 0.1 });
 
-toggleBtn.addEventListener("click", () => {
-  menu.classList.toggle("active");
-});
-document.querySelectorAll(".mobile-menu a").forEach(link => {
-  link.addEventListener("click", () => {
-    menu.classList.remove("active");
-  });
+sections.forEach(sec => {
+    sec.classList.add("hidden");
+    observer.observe(sec);
 });
