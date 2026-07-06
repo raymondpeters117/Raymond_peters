@@ -128,7 +128,7 @@ sections.forEach(sec => {
     observer.observe(sec);
 });
 emailjs.init({
-    publicKey: "YOUR_PUBLIC_KEY"
+    publicKey: "yBBhs7VyLJJ-0Xhk8"
 });
 
 const form = document.getElementById("contactForm");
