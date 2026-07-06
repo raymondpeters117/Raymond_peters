@@ -75,24 +75,41 @@ topBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-//// ================= CONTACT FORM SAVE =================
+//// ================= EMAILJS CONTACT FORM (ADDED) =================
 const form = document.querySelector("form");
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     const name = form.querySelector("input[type='text']").value;
     const email = form.querySelector("input[type='email']").value;
     const message = form.querySelector("textarea").value;
 
-    const messages = JSON.parse(localStorage.getItem("messages")) || [];
+    // Send email using EmailJS
+    emailjs.send(
+        "service_wmjtgwl",     // your service ID
+        "YOUR_TEMPLATE_ID",    // replace this
+        {
+            from_name: name,
+            from_email: email,
+            message: message
+        },
+        "YOUR_PUBLIC_KEY"      // replace this
+    )
+    .then(() => {
+        alert("Message sent successfully 📩");
 
-    messages.push({ name, email, message });
+        // also save locally (your old feature)
+        const messages = JSON.parse(localStorage.getItem("messages")) || [];
+        messages.push({ name, email, message });
+        localStorage.setItem("messages", JSON.stringify(messages));
 
-    localStorage.setItem("messages", JSON.stringify(messages));
-
-    alert("Message sent successfully!");
-    form.reset();
+        form.reset();
+    })
+    .catch((error) => {
+        console.log("EmailJS Error:", error);
+        alert("Failed to send message ❌");
+    });
 });
 
 //// ================= FADE IN ANIMATION =================
