@@ -143,7 +143,7 @@ form.addEventListener("submit", function(e) {
         message: document.getElementById("message").value
     };
 
-    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", params)
+    emailjs.send("service_wmjtgwl", "service_wmjtgwl", params)
     .then(() => {
         document.getElementById("status").innerHTML =
             "✅ Message sent successfully!";
