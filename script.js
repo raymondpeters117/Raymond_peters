@@ -1,159 +1,234 @@
-//// ================= MOBILE MENU =================
-const menuToggle = document.getElementById("menuToggle");
-const mobileMenu = document.getElementById("mobileMenu");
-const overlay = document.getElementById("overlay");
+// =========================================
+// PORTFOLIO WEBSITE JAVASCRIPT
+// =========================================
 
-menuToggle.addEventListener("click", () => {
-    mobileMenu.classList.toggle("active");
-    overlay.classList.toggle("active");
-});
+document.addEventListener("DOMContentLoaded", () => {
 
-overlay.addEventListener("click", () => {
-    mobileMenu.classList.remove("active");
-    overlay.classList.remove("active");
-});
+    // =====================================
+    // MOBILE MENU
+    // =====================================
 
-//// ================= TYPING TEXT =================
-const typed = document.getElementById("typed");
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const overlay = document.getElementById("overlay");
 
-const words = ["Web Developer", "UI Designer", "ICT Student"];
-let i = 0;
-let j = 0;
-let current = "";
-let isDeleting = false;
+    if (menuToggle && mobileMenu && overlay) {
 
-function typeEffect() {
-    current = words[i];
+        menuToggle.addEventListener("click", () => {
+            mobileMenu.classList.toggle("active");
+            overlay.classList.toggle("active");
+        });
 
-    if (isDeleting) {
-        typed.textContent = current.substring(0, j--);
-    } else {
-        typed.textContent = current.substring(0, j++);
+        overlay.addEventListener("click", () => {
+            mobileMenu.classList.remove("active");
+            overlay.classList.remove("active");
+        });
+
     }
 
-    if (!isDeleting && j === current.length) {
-        isDeleting = true;
-        setTimeout(typeEffect, 1200);
-        return;
-    }
 
-    if (isDeleting && j === 0) {
-        isDeleting = false;
-        i = (i + 1) % words.length;
-    }
+    // =====================================
+    // TYPING EFFECT
+    // =====================================
 
-    setTimeout(typeEffect, isDeleting ? 60 : 120);
-}
+    const typed = document.getElementById("typed");
 
-typeEffect();
+    if (typed) {
 
-//// ================= SLIDESHOW =================
-let slides = document.querySelectorAll(".slide");
-let index = 0;
+        const words = [
+            "Web Developer",
+            "UI Designer",
+            "ICT Student"
+        ];
 
-function showSlide() {
-    slides.forEach(slide => slide.classList.remove("active"));
-    slides[index].classList.add("active");
+        let wordIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
 
-    index = (index + 1) % slides.length;
-}
+        function type() {
 
-setInterval(showSlide, 3000);
+            const currentWord = words[wordIndex];
 
-//// ================= SCROLL TO TOP =================
-const topBtn = document.getElementById("topBtn");
+            if (deleting) {
+                typed.textContent = currentWord.substring(0, charIndex--);
+            } else {
+                typed.textContent = currentWord.substring(0, charIndex++);
+            }
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-        topBtn.style.display = "block";
-    } else {
-        topBtn.style.display = "none";
-    }
-});
+            let speed = deleting ? 60 : 120;
 
-topBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-});
+            if (!deleting && charIndex === currentWord.length + 1) {
+                deleting = true;
+                speed = 1500;
+            }
 
-//// ================= EMAILJS CONTACT FORM (ADDED) =================
-const form = document.querySelector("form");
+            if (deleting && charIndex === 0) {
+                deleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+            }
 
-form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const name = form.querySelector("input[type='text']").value;
-    const email = form.querySelector("input[type='email']").value;
-    const message = form.querySelector("textarea").value;
-
-    // Send email using EmailJS
-    emailjs.send(
-        "service_wmjtgwl",     // your service ID
-        "YOUR_TEMPLATE_ID",    // replace this
-        {
-            from_name: name,
-            from_email: email,
-            message: message
-        },
-        "YOUR_PUBLIC_KEY"      // replace this
-    )
-    .then(() => {
-        alert("Message sent successfully 📩");
-
-        // also save locally (your old feature)
-        const messages = JSON.parse(localStorage.getItem("messages")) || [];
-        messages.push({ name, email, message });
-        localStorage.setItem("messages", JSON.stringify(messages));
-
-        form.reset();
-    })
-    .catch((error) => {
-        console.log("EmailJS Error:", error);
-        alert("Failed to send message ❌");
-    });
-});
-
-//// ================= FADE IN ANIMATION =================
-const sections = document.querySelectorAll("section");
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
+            setTimeout(type, speed);
         }
+
+        type();
+    }
+
+
+    // =====================================
+    // SLIDESHOW
+    // =====================================
+
+    const slides = document.querySelectorAll(".slide");
+
+    if (slides.length > 0) {
+
+        let slideIndex = 0;
+
+        function showSlides() {
+
+            slides.forEach(slide => slide.classList.remove("active"));
+
+            slides[slideIndex].classList.add("active");
+
+            slideIndex++;
+
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            }
+        }
+
+        showSlides();
+
+        setInterval(showSlides, 3000);
+    }
+
+
+    // =====================================
+    // SCROLL TO TOP
+    // =====================================
+
+    const topBtn = document.getElementById("topBtn");
+
+    if (topBtn) {
+
+        window.addEventListener("scroll", () => {
+
+            topBtn.style.display =
+                window.scrollY > 300 ? "block" : "none";
+
+        });
+
+        topBtn.addEventListener("click", () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+    }
+
+
+    // =====================================
+    // FADE IN
+    // =====================================
+
+    const sections = document.querySelectorAll("section");
+
+    if (sections.length > 0) {
+
+        const observer = new IntersectionObserver(entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+
+            });
+
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            section.classList.add("hidden");
+            observer.observe(section);
+        });
+
+    }
+
+
+    // =====================================
+    // EMAILJS
+    // =====================================
+
+    emailjs.init({
+        publicKey: "yBBhs7VyLJJ-0Xhk8"
     });
-}, { threshold: 0.1 });
 
-sections.forEach(sec => {
-    sec.classList.add("hidden");
-    observer.observe(sec);
-});
-emailjs.init({
-    publicKey: "yBBhs7VyLJJ-0Xhk8"
-});
+    const form = document.getElementById("contactForm");
 
-const form = document.getElementById("contactForm");
+    if (form) {
 
-form.addEventListener("submit", function(e) {
-    e.preventDefault();
+        form.addEventListener("submit", function (e) {
 
-    const params = {
-        from_name: document.getElementById("name").value,
-        from_email: document.getElementById("email").value,
-        subject: document.getElementById("subject").value,
-        message: document.getElementById("message").value
-    };
+            e.preventDefault();
 
-    emailjs.send("service_wmjtgwl", "service_wmjtgwl", params)
-    .then(() => {
-        document.getElementById("status").innerHTML =
-            "✅ Message sent successfully!";
+            const params = {
 
-        form.reset();
-    })
-    .catch((error) => {
-        document.getElementById("status").innerHTML =
-            "❌ Failed to send message.";
+                from_name: document.getElementById("name").value.trim(),
 
-        console.log(error);
-    });
+                from_email: document.getElementById("email").value.trim(),
+
+                subject: document.getElementById("subject").value.trim(),
+
+                message: document.getElementById("message").value.trim()
+
+            };
+
+            emailjs.send(
+                "service_wmjtgwl",
+                "YOUR_TEMPLATE_ID", // Replace with your template ID
+                params
+            )
+
+            .then(() => {
+
+                document.getElementById("status").innerHTML =
+                    "✅ Message sent successfully.";
+
+                // Save locally
+
+                const messages =
+                    JSON.parse(localStorage.getItem("messages")) || [];
+
+                messages.push({
+                    ...params,
+                    date: new Date().toLocaleString()
+                });
+
+                localStorage.setItem(
+                    "messages",
+                    JSON.stringify(messages)
+                );
+
+                form.reset();
+
+            })
+
+            .catch(error => {
+
+                console.error(error);
+
+                document.getElementById("status").innerHTML =
+                    "❌ Failed to send message.";
+
+            });
+
+        });
+
+    }
+
 });
