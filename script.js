@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             emailjs.send(
                 "service_wmjtgwl",
-                "YOUR_TEMPLATE_ID", // Replace with your template ID
+                "template_mun37y8", // Replace with your template ID
                 params
             )
 
