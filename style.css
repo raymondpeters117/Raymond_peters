@@ -266,15 +266,75 @@ header{
     }
 }
 /* Logo */
+/* ===========================
+   LOGO
+=========================== */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
 .logo img{
-    width:70px;
-    height:70px;
+    width:60px;
+    height:60px;
+    object-fit:contain;
+    border-radius:12px;
+    transition:0.4s ease;
+    cursor:pointer;
+}
+
+.logo img:hover{
+    transform:rotate(-5deg) scale(1.08);
+    filter:drop-shadow(0 0 15px #00bfff);
+}
+
+/* Logo Text */
+
+.logo h1{
+    color:#ffffff;
+    font-size:28px;
+    font-weight:700;
+    font-family:'Poppins',sans-serif;
+    letter-spacing:2px;
 }
 
 .logo span{
-    color:#22d3ee;
+    color:#00bfff;
 }
 
+/* Sticky Header */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,.85);
+    backdrop-filter:blur(12px);
+    z-index:1000;
+    box-shadow:0 3px 15px rgba(0,0,0,.3);
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.logo img{
+    width:48px;
+    height:48px;
+}
+
+.logo h1{
+    font-size:22px;
+}
+
+}
 /* Navigation */
 nav{
     display:flex;
