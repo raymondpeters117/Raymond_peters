@@ -154,6 +154,87 @@ header{
 
     transition:0.3s ease;
 }
+/* ==========================
+   LOGO MENU TOGGLE BUTTON
+========================== */
+
+.logo-toggle{
+    position: fixed;
+    top: 15px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+
+    border: 2px solid rgba(34,211,238,.35);
+    border-radius: 50%;
+
+    cursor: pointer;
+    outline: none;
+
+    transition: all .35s ease;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.35),
+        0 0 20px rgba(34,211,238,.15);
+
+    z-index: 1100;
+}
+
+.logo-toggle:hover{
+    transform: scale(1.08) rotate(5deg);
+
+    border-color: #22d3ee;
+
+    box-shadow:
+        0 0 25px rgba(34,211,238,.6),
+        0 0 50px rgba(34,211,238,.3);
+}
+
+.logo-toggle:active{
+    transform: scale(.95);
+}
+
+.logo-toggle img{
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    border-radius: 50%;
+    transition: transform .35s ease;
+}
+
+.logo-toggle:hover img{
+    transform: rotate(360deg);
+}
+
+/* Active State */
+.logo-toggle.active{
+    background: rgba(34,211,238,.2);
+    border-color: #22d3ee;
+}
+
+/* Mobile */
+@media (max-width:768px){
+
+.logo-toggle{
+    width: 52px;
+    height: 52px;
+    top: 12px;
+    left: 12px;
+}
+
+.logo-toggle img{
+    width: 36px;
+    height: 36px;
+}
+
+}
 /* =========================
    MOBILE HAMBURGER MENU
 ========================= */
