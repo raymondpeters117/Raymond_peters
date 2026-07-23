@@ -231,4 +231,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+})
+    const menuToggle = document.getElementById("menuToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+const overlay = document.getElementById("overlay");
+
+menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("active");
+    mobileMenu.classList.toggle("active");
+    overlay.classList.toggle("active");
 });
+
+overlay.addEventListener("click", () => {
+    menuToggle.classList.remove("active");
+    mobileMenu.classList.remove("active");
+    overlay.classList.remove("active");
+});;
